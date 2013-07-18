@@ -41,15 +41,15 @@ class nagios::server {
   }
 
   nagios_servicegroup {
-    "openstack-endpoints":
-      tag => $environment,
-      alias => "The user facing endpoints.";
-    "message-queues":
-      tag => $environment,
-      alias => "RabbitMQ and other queues.";
-    "databases":
-      tag => $environment,
-      alias => "Database Servers.";
+    'openstack-endpoints':
+      tag   => $environment,
+      alias => 'The user facing endpoints.';
+    'message-queues':
+      tag   => $environment,
+      alias => 'RabbitMQ and other queues.';
+    'databases':
+      tag   => $environment,
+      alias => 'Database Servers.';
   }
 
   Nagios_command <<| tag == $environment |>>
@@ -192,9 +192,11 @@ class nagios::server {
   nagios_command {
     'http_port':
       tag          => $environment,
-      command_line => '$USER1$/check_http -p $ARG1$ -H $HOSTADDRESS$ -I $HOSTADDRESS$';
+      command_line =>
+        '$USER1$/check_http -p $ARG1$ -H $HOSTADDRESS$ -I $HOSTADDRESS$';
     'https_port':
       tag          => $environment,
-      command_line => '$USER1$/check_http --ssl -p $ARG1$ -H $HOSTADDRESS$ -I $HOSTADDRESS$';
+      command_line =>
+        '$USER1$/check_http --ssl -p $ARG1$ -H $HOSTADDRESS$ -I $HOSTADDRESS$';
   }
 }
