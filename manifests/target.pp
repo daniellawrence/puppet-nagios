@@ -17,12 +17,12 @@ class nagios::target (
   }
 
   if ($parents != 'absent') {
-    Nagios_host[$fqdn] {
+    Nagios_host[$::fqdn] {
       parents => $parents }
   }
 
   if ($hostgroups != 'absent') {
-    Nagios_host[$fqdn] {
+    Nagios_host[$::fqdn] {
       hostgroups => $hostgroups }
   }
 
