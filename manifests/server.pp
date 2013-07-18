@@ -1,3 +1,6 @@
+# nagios-server
+# Install the nagios monitoring server and configure based on
+# exported resources.
 class nagios::server {
 
   $nagios_pkgs = [ 'nagios3', 'nagios-images']
