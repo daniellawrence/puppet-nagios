@@ -10,7 +10,7 @@ class nagios::target (
   $nagios_alias = $::hostname,
   $hostgroups = 'absent'
 ){
-  @@nagios_host { $fqdn:
+  @@nagios_host { $::fqdn:
     address => $address,
     alias   => $nagios_alias,
     use     => 'generic-host',
