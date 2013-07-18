@@ -1,3 +1,5 @@
+# check_iostat
+# This will install and configure the check_iostat check
 class nagios::checks::iostat {
 
   package { 'sysstat':
@@ -13,7 +15,8 @@ class nagios::checks::iostat {
   }
 
   nagios::nrpe::service { 'check_iostat':
-    check_command => '/usr/local/lib/nagios/plugins/check_iostat -d vdb -c 2,75,2 -w 1,60,1';
+    check_command =>
+      '/usr/local/lib/nagios/plugins/check_iostat -d vdb -c 2,75,2 -w 1,60,1';
   }
 }
 
